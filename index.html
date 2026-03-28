@@ -250,7 +250,7 @@
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
         
         // YOUR API KEY VAULT (Make sure config.js is in your folder!)
-     const GLOOBIE_KEY = "AIzaSyA0TWJVEQmNShP92Hqz60HRITPfXrzlLyU";
+    const GLOOBIE_KEY = import.meta.env.VITE_GLOOBIE_KEY;
 
         // PUT YOUR FIREBASE CONFIG HERE
         const firebaseConfig = {
