@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNI | Science Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap');
+        :root { 
+            --mustard: #F4D35E; 
+            --blueberry: #081226; 
+            --raspberry: #AB273C; 
+            --charcoal: #1e293b; 
+        }
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--blueberry); color: white; margin: 0; padding: 40px; overflow-x: hidden; }
+        
+        .hub-container { max-width: 1100px; margin: 0 auto; }
+        
+        .subject-card { 
+            background: white; color: var(--charcoal); border: 4px solid var(--charcoal); border-radius: 50px; 
+            padding: 30px; text-align: center; transition: 0.3s; cursor: pointer;
+            box-shadow: 8px 8px 0px var(--mustard); 
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .subject-card:hover { transform: translateY(-8px); box-shadow: 12px 12px 0px var(--raspberry); }
+        
+        .back-btn { color: white; font-weight: 900; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; border-bottom: 3px solid white; margin-bottom: 40px; display: inline-block; transition: 0.2s; }
+        .back-btn:hover { color: var(--mustard); border-color: var(--mustard); }
+
+        /* GOOGLE TRANSLATE ASSASSIN */
+        .goog-te-banner-frame.skiptranslate { display: none !important; } 
+        body { top: 0px !important; }
+        .goog-logo-link { display: none !important; }
+        .goog-te-gadget { color: transparent !important; }
+        .goog-te-gadget .goog-te-combo { display: none !important; }
+        #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+    </style>
+</head>
+<body class="bg-[var(--blueberry)] bg-[radial-gradient(rgba(244,211,94,0.15)_2px,transparent_2px)] [background-size:30px_30px]">
+
+    <nav class="max-w-6xl mx-auto p-6 flex justify-between items-center bg-white rounded-b-[40px] border-b-4 border-x-4 border-[var(--charcoal)] shadow-[8px_8px_0px_var(--raspberry)] mb-12">
+        <div class="flex items-center gap-3 cursor-pointer text-charcoal" onclick="location.href='index.html'">
+            <div class="w-10 h-10 bg-[#AB273C] rounded-full flex items-center justify-center font-black text-white text-xl shadow-[2px_2px_0px_#1e293b]">O</div>
+            <span class="font-extrabold text-2xl tracking-tighter uppercase">OMNI</span>
+        </div>
+        
+        <div class="flex gap-3 overflow-x-auto text-charcoal">
+            <button onclick="changeLanguage('en')" class="font-black text-[10px] hover:text-[#AB273C] transition">EN</button>
+            <button onclick="changeLanguage('es')" class="font-black text-[10px] hover:text-[#AB273C] transition">ES</button>
+            <button onclick="changeLanguage('fr')" class="font-black text-[10px] hover:text-[#AB273C] transition">FR</button>
+            <button onclick="changeLanguage('zh-CN')" class="font-black text-[10px] hover:text-[#AB273C] transition">ZH</button>
+            <button onclick="changeLanguage('ar')" class="font-black text-[10px] hover:text-[#AB273C] transition">AR</button>
+            <button onclick="changeLanguage('hi')" class="font-black text-[10px] hover:text-[#AB273C] transition">HI</button>
+            <button onclick="changeLanguage('pt')" class="font-black text-[10px] hover:text-[#AB273C] transition">PT</button>
+        </div>
+    </nav>
+
+    <div class="hub-container">
+        <a href="index.html" class="back-btn">← Back to Main Hub</a>
+        
+        <h1 class="text-7xl font-black uppercase italic mb-4">Science <span class="text-[var(--mustard)]">Domain</span></h1>
+        <p class="text-xl font-bold mb-16 text-white/80 border-l-8 border-[var(--mustard)] pl-6 uppercase tracking-widest text-xs">Select your course level.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="subject-card" onclick="openLevelSelect('Biology', 'bio-std.html', 'bio-ap.html')">
+                <div>
+                    <div class="text-6xl mb-4">🧬</div>
+                    <h2 class="text-3xl font-black uppercase italic">Biology</h2>
+                </div>
+                <p class="mt-4 font-bold text-[#AB273C] text-xs tracking-widest uppercase">Standard / AP Options</p>
+            </div>
+
+            <div class="subject-card" onclick="openLevelSelect('Chemistry', 'chem-std.html', 'chem-ap.html')">
+                <div>
+                    <div class="text-6xl mb-4">🧪</div>
+                    <h2 class="text-3xl font-black uppercase italic">Chemistry</h2>
+                </div>
+                <p class="mt-4 font-bold text-[#AB273C] text-xs tracking-widest uppercase">Standard / AP Options</p>
+            </div>
+
+            <div class="subject-card" onclick="openLevelSelect('Physics', 'phys-std.html', 'phys-ap.html')">
+                <div>
+                    <div class="text-6xl mb-4">🚀</div>
+                    <h2 class="text-3xl font-black uppercase italic">Physics</h2>
+                </div>
+                <p class="mt-4 font-bold text-[#AB273C] text-xs tracking-widest uppercase">Standard / AP Options</p>
+            </div>
+
+            <div class="subject-card" onclick="openLevelSelect('Environmental Science', 'env-std.html', 'env-ap.html')">
+                <div>
+                    <div class="text-6xl mb-4">🌍</div>
+                    <h2 class="text-2xl font-black uppercase italic">Env. Science</h2>
+                </div>
+                <p class="mt-4 font-bold text-[#AB273C] text-xs tracking-widest uppercase">Standard / AP Options</p>
+            </div>
+
+            <div class="subject-card" onclick="window.location.href='anatomy.html'">
+                <div>
+                    <div class="text-6xl mb-4">🦴</div>
+                    <h2 class="text-2xl font-black uppercase italic leading-none mt-2">Anatomy & <br>Physiology</h2>
+                </div>
+                <p class="mt-4 font-bold text-slate-400 text-xs tracking-widest uppercase">Standard Course</p>
+            </div>
+
+            <div class="subject-card" onclick="window.location.href='psych-ap.html'">
+                <div>
+                    <div class="text-6xl mb-4">🧠</div>
+                    <h2 class="text-3xl font-black uppercase italic">Psychology</h2>
+                </div>
+                <p class="mt-4 font-bold text-purple-500 text-xs tracking-widest uppercase">Advanced (AP) Only</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="level-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-md z-[2000] flex items-center justify-center p-6">
+        <div class="bg-white color-[var(--charcoal)] border-4 border-[var(--charcoal)] rounded-[50px] p-10 max-w-lg w-full shadow-[20px_20px_0px_#F4D35E] text-center relative text-slate-800">
+            
+            <button onclick="closeLevelSelect()" class="absolute top-6 right-8 text-2xl font-black text-slate-400 hover:text-[var(--raspberry)] transition">X</button>
+            
+            <span class="text-[var(--raspberry)] font-black uppercase tracking-[0.3em] text-[10px] mb-2 block">// SELECT DIFFICULTY</span>
+            <h2 id="modal-subject-title" class="text-5xl font-black uppercase italic mb-8">Subject</h2>
+            
+            <div class="space-y-4">
+                <button id="btn-standard" class="w-full bg-slate-100 hover:bg-slate-200 border-4 border-charcoal text-charcoal p-5 rounded-3xl transition flex flex-col items-center shadow-[4px_4px_0px_#1e293b] hover:translate-y-1 hover:shadow-none">
+                    <span class="font-black uppercase text-xl">Standard Level</span>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">G9-G12 Core Curriculum</span>
+                </button>
+
+                <button id="btn-ap" class="w-full bg-[var(--raspberry)] hover:bg-[#8e2031] border-4 border-charcoal text-white p-5 rounded-3xl transition flex flex-col items-center shadow-[4px_4px_0px_#1e293b] hover:translate-y-1 hover:shadow-none">
+                    <span class="font-black uppercase text-xl">Advanced (AP)</span>
+                    <span class="text-xs font-bold text-white/80 uppercase tracking-wider mt-1">Equivalent to A-Levels / IB HL</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openLevelSelect(subjectName, standardLink, apLink) {
+            document.getElementById('modal-subject-title').innerText = subjectName;
+            document.getElementById('btn-standard').onclick = function() { window.location.href = standardLink; };
+            document.getElementById('btn-ap').onclick = function() { window.location.href = apLink; };
+            document.getElementById('level-modal').classList.remove('hidden');
+        }
+
+        function closeLevelSelect() {
+            document.getElementById('level-modal').classList.add('hidden');
+        }
+
+        function changeLanguage(lang) {
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=/en/" + lang + "; path=/";
+            location.reload();
+        }
+
+        function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element'); }
+    </script>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <script src="gloobie.js"></script>
+</body>
+</html>

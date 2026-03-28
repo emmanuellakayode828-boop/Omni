@@ -1,0 +1,1 @@
+export const GLOOBIE_KEY = AIzaSyA0TWJVEQmNShP92Hqz60HRITPfXrzlLyU

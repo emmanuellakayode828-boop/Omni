@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNI | Biology System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap');
+        :root { --mustard: #F4D35E; --blueberry: #081226; --raspberry: #AB273C; --charcoal: #1e293b; }
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--blueberry); color: white; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+
+        .resource-nav { width: 280px; background: white; color: var(--charcoal); border-right: 4px solid var(--charcoal); padding: 40px 20px; display: flex; flex-direction: column; gap: 10px; z-index: 10; box-shadow: 10px 0px 20px rgba(0,0,0,0.3); }
+        .resource-btn { padding: 15px 25px; border-radius: 40px; border: 2px solid transparent; font-weight: 800; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; cursor: pointer; transition: 0.2s; text-align: left; }
+        .resource-btn.active { background: var(--raspberry); color: white; border-color: var(--charcoal); box-shadow: 4px 4px 0px var(--charcoal); }
+
+        .main-content { flex-grow: 1; padding: 60px; overflow-y: auto; background-color: var(--blueberry); background-image: radial-gradient(rgba(244, 211, 94, 0.15) 2px, transparent 2px); background-size: 30px 30px; }
+        .unit-card { background: white; color: var(--charcoal); border: 4px solid var(--charcoal); padding: 30px; border-radius: 50px; box-shadow: 8px 8px 0px var(--mustard); transition: 0.3s; cursor: pointer; }
+        .unit-card:hover { transform: translateY(-5px); box-shadow: 12px 12px 0px var(--raspberry); }
+        
+        .back-hub { color: white; font-weight: 900; text-transform: uppercase; font-size: 10px; margin-bottom: 40px; display: inline-block; border-bottom: 2px solid white; cursor: pointer; transition: 0.2s;}
+        
+        /* GOOGLE TRANSLATE ASSASSIN */
+        .goog-te-banner-frame.skiptranslate { display: none !important; } 
+        body { top: 0px !important; }
+        .goog-logo-link, .goog-te-gadget .goog-te-combo, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+    </style>
+</head> 
+<body>
+
+    <aside class="resource-nav">
+        <div class="mb-10 px-4">
+            <h2 class="font-black text-3xl italic tracking-tighter">BIOLOGY</h2>
+            <p class="text-[9px] uppercase font-black text-[#AB273C] tracking-widest mt-1">Standard • G9-G12</p>
+        </div>
+        <div class="resource-btn active">📚 Info Resources</div>
+        <div class="resource-btn" onclick="alert('Extras coming soon!')">✨ Extras</div>
+        
+        <div class="mt-auto pt-10 px-4">
+            <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Language</p>
+            <div class="flex flex-wrap gap-2">
+                <button onclick="changeLanguage('en')" class="font-black text-[10px] hover:text-[#AB273C] transition">EN</button>
+                <button onclick="changeLanguage('es')" class="font-black text-[10px] hover:text-[#AB273C] transition">ES</button>
+                <button onclick="changeLanguage('fr')" class="font-black text-[10px] hover:text-[#AB273C] transition">FR</button>
+                <button onclick="changeLanguage('zh-CN')" class="font-black text-[10px] hover:text-[#AB273C] transition">ZH</button>
+                <button onclick="changeLanguage('ar')" class="font-black text-[10px] hover:text-[#AB273C] transition">AR</button>
+                <button onclick="changeLanguage('hi')" class="font-black text-[10px] hover:text-[#AB273C] transition">HI</button>
+                <button onclick="changeLanguage('pt')" class="font-black text-[10px] hover:text-[#AB273C] transition">PT</button>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <a href="science-hub.html" class="back-hub">← Exit to Science Domain</a>
+        <header class="mb-12">
+            <h1 class="text-6xl font-black uppercase italic leading-none text-white">Curriculum</h1>
+        </header>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="unit-card" onclick="window.location.href='bio-unit1.html'">
+                <span class="text-[9px] font-black uppercase text-[#AB273C] tracking-widest">Unit 01</span>
+                <h3 class="text-xl font-black mt-1 uppercase italic">Cell Biology</h3>
+                <p class="text-[10px] font-bold text-slate-500 mt-2">Organelles, Membranes, & Transport.</p>
+            </div>
+            
+            <div class="unit-card" onclick="alert('You need to build bio-unit2.html first!')">
+                <span class="text-[9px] font-black uppercase text-[#AB273C] tracking-widest">Unit 02</span>
+                <h3 class="text-xl font-black mt-1 uppercase italic">Energetics</h3>
+                <p class="text-[10px] font-bold text-slate-500 mt-2">Enzymes, ATP, & Photosynthesis.</p>
+            </div>
+
+            <div class="unit-card" onclick="alert('You need to build bio-unit3.html first!')">
+                <span class="text-[9px] font-black uppercase text-[#AB273C] tracking-widest">Unit 03</span>
+                <h3 class="text-xl font-black mt-1 uppercase italic">Cell Cycle</h3>
+                <p class="text-[10px] font-bold text-slate-500 mt-2">Mitosis, Meiosis, & Signaling.</p>
+            </div>
+
+            <div class="unit-card" onclick="alert('You need to build bio-unit4.html first!')">
+                <span class="text-[9px] font-black uppercase text-[#AB273C] tracking-widest">Unit 04</span>
+                <h3 class="text-xl font-black mt-1 uppercase italic">Heredity</h3>
+                <p class="text-[10px] font-bold text-slate-500 mt-2">Mendelian Genetics & Inheritance.</p>
+            </div>
+
+            <div class="unit-card" onclick="alert('You need to build bio-unit5.html first!')">
+                <span class="text-[9px] font-black uppercase text-[#AB273C] tracking-widest">Unit 05</span>
+                <h3 class="text-xl font-black mt-1 uppercase italic">Molecular Bio</h3>
+                <p class="text-[10px] font-bold text-slate-500 mt-2">DNA Replication & Biotechnology.</p>
+            </div>
+
+            <div class="unit-card" onclick="alert('You need to build bio-unit6.html first!')">
+                <span class="text-[9px] font-black uppercase text-[#AB273C] tracking-widest">Unit 06</span>
+                <h3 class="text-xl font-black mt-1 uppercase italic">Evolution</h3>
+                <p class="text-[10px] font-bold text-slate-500 mt-2">Natural Selection & Phylogeny.</p>
+            </div>
+
+            <div class="unit-card" onclick="alert('You need to build bio-unit7.html first!')">
+                <span class="text-[9px] font-black uppercase text-[#AB273C] tracking-widest">Unit 07</span>
+                <h3 class="text-xl font-black mt-1 uppercase italic">Physiology</h3>
+                <p class="text-[10px] font-bold text-slate-500 mt-2">Systems of the Human Body.</p>
+            </div>
+
+            <div class="unit-card" onclick="alert('You need to build bio-unit8.html first!')">
+                <span class="text-[9px] font-black uppercase text-[#AB273C] tracking-widest">Unit 08</span>
+                <h3 class="text-xl font-black mt-1 uppercase italic">Ecology</h3>
+                <p class="text-[10px] font-bold text-slate-500 mt-2">Populations & Biodiversity.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function changeLanguage(lang) {
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=/en/" + lang + "; path=/";
+            location.reload();
+        }
+        function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element'); }
+    </script>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="gloobie.js"></script>
+
+</body>
+</html>

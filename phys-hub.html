@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNI | Physics Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap');
+        :root { --mustard: #F4D35E; --raspberry: #AB273C; --charcoal: #1e293b; --cyan: #22d3ee; }
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0f172a; color: white; margin: 0; padding: 40px; }
+        
+        .hub-container { max-width: 1100px; margin: 0 auto; }
+        
+        .subject-card { 
+            background: white; color: var(--charcoal); border: 4px solid var(--charcoal); border-radius: 40px; 
+            padding: 30px; text-align: center; transition: 0.3s; cursor: pointer;
+            box-shadow: 8px 8px 0px var(--cyan); 
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .subject-card:hover { transform: translateY(-8px); box-shadow: 12px 12px 0px var(--raspberry); }
+        
+        .back-btn { color: white; font-weight: 900; text-transform: uppercase; font-size: 12px; border-bottom: 3px solid var(--cyan); margin-bottom: 40px; display: inline-block; }
+    </style>
+</head>
+<body class="bg-[#0f172a] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]">
+
+    <nav class="max-w-6xl mx-auto p-6 flex justify-between items-center bg-white rounded-b-[40px] border-b-4 border-x-4 border-[var(--charcoal)] shadow-[8px_8px_0px_var(--cyan)] mb-12">
+        <div class="flex items-center gap-3 cursor-pointer text-charcoal" onclick="location.href='index.html'">
+            <div class="w-10 h-10 bg-[#AB273C] rounded-full flex items-center justify-center font-black text-white text-xl shadow-[2px_2px_0px_#1e293b]">O</div>
+            <span class="font-extrabold text-2xl tracking-tighter uppercase">OMNI</span>
+        </div>
+        
+        <div class="flex gap-3 text-charcoal">
+            <button onclick="changeLanguage('en')" class="font-black text-[10px] hover:text-[#AB273C]">EN</button>
+            <button onclick="changeLanguage('es')" class="font-black text-[10px] hover:text-[#AB273C]">ES</button>
+            <button onclick="changeLanguage('fr')" class="font-black text-[10px] hover:text-[#AB273C]">FR</button>
+        </div>
+    </nav>
+
+    <div class="hub-container">
+        <a href="science-hub.html" class="back-btn">← Back to Science Domain</a>
+        <h1 class="text-7xl font-black uppercase italic mb-4">Physics <span class="text-[var(--cyan)]">Lab</span></h1>
+        <p class="text-xl font-bold mb-16 border-l-8 border-[var(--cyan)] pl-6 uppercase tracking-widest text-xs">Forces, Motion, and Universal Laws.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="subject-card">
+                <div>
+                    <div class="text-5xl mb-4">🏎️</div>
+                    <h2 class="text-2xl font-black uppercase italic">Kinematics</h2>
+                </div>
+                <p class="mt-4 font-bold text-slate-500 text-[10px] uppercase">Velocity & Acceleration</p>
+            </div>
+
+            <div class="subject-card border-[var(--cyan)] bg-slate-50" onclick="alert('The Gravity Game is in development!')">
+                <div>
+                    <div class="text-5xl mb-4">🎮</div>
+                    <h2 class="text-2xl font-black uppercase italic text-[var(--cyan)]">Gravity Drop</h2>
+                </div>
+                <p class="mt-4 font-bold text-slate-500 text-[10px] uppercase">Interactive Mini-Game</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeLanguage(lang) {
+            document.cookie = "googtrans=/en/" + lang + "; path=/";
+            location.reload();
+        }
+    </script>
+    <script src="gloobie.js"></script>
+</body>
+</html>

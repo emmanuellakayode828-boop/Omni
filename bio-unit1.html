@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 | Cell Biology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap');
+        :root { --mustard: #F4D35E; --blueberry: #081226; --raspberry: #AB273C; --charcoal: #1e293b; }
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--blueberry); color: white; margin: 0; padding: 40px; overflow-x: hidden; position: relative; }
+
+        .bg-emoji { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40vw; opacity: 0.05; z-index: -1; pointer-events: none; }
+        .hub-container { max-width: 1000px; margin: 0 auto; position: relative; z-index: 10; }
+        
+        .back-btn { color: white; font-weight: 900; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; border-bottom: 3px solid white; margin-bottom: 40px; display: inline-block; transition: 0.2s; }
+        .back-btn:hover { color: var(--mustard); border-color: var(--mustard); }
+
+        .section-header { border-bottom: 4px solid var(--mustard); padding-bottom: 10px; margin-bottom: 30px; margin-top: 60px; }
+        
+        /* LIST ITEMS */
+        .list-bar { background: white; color: var(--charcoal); border: 4px solid var(--charcoal); padding: 25px; border-radius: 30px; box-shadow: 6px 6px 0px var(--raspberry); display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; transition: 0.2s; cursor: pointer; }
+        .list-bar:hover { transform: translateX(10px); box-shadow: 10px 10px 0px var(--mustard); }
+        .action-btn { background: var(--charcoal); color: white; padding: 10px 25px; border-radius: 30px; font-weight: 900; text-transform: uppercase; font-size: 12px; border: 2px solid transparent; }
+        .list-bar:hover .action-btn { background: var(--raspberry); border-color: var(--charcoal); }
+
+        /* GRID CARDS (Videos/Quizzes) */
+        .grid-card { background: white; border: 4px solid var(--charcoal); border-radius: 30px; p-6 text-center text-charcoal shadow-[6px_6px_0px_#878CD8] padding: 20px; transition: 0.2s; cursor: pointer; }
+        .grid-card:hover { transform: translateY(-5px); box-shadow: 8px 8px 0px var(--mustard); }
+
+        /* TEST CARDS */
+        .test-card { background: var(--mustard); border: 4px solid var(--charcoal); rounded-[40px] p-8 text-charcoal shadow-[10px_10px_0px_var(--raspberry)] flex justify-between items-center mb-6 padding: 30px; border-radius: 40px; }
+    </style>
+</head>
+<body>
+
+    <div class="bg-emoji">🧬</div>
+
+    <div class="hub-container">
+        <a href="bio-std.html" class="back-btn">← Back to Biology Curriculum</a>
+        
+        <span class="text-[#AB273C] font-black uppercase tracking-widest text-sm bg-white px-3 py-1 rounded-full">// UNIT 01</span>
+        <h1 class="text-6xl md:text-8xl font-black uppercase italic mt-4 mb-2">Cell Biology</h1>
+        <p class="text-xl font-bold text-[var(--mustard)] max-w-2xl leading-relaxed">
+            The building blocks of life. Master the articles, watch the lectures, complete all 5 quizzes, and dominate the final tests.
+        </p>
+
+        <div class="section-header">
+            <h2 class="text-4xl font-black uppercase italic">📄 Articles</h2>
+        </div>
+        
+        <div class="list-bar" onclick="alert('Loading Article 1...')">
+            <div>
+                <h3 class="text-2xl font-black uppercase">1. The Plasma Membrane</h3>
+                <p class="font-bold text-slate-500 text-sm mt-1">Phospholipid bilayers and fluid mosaic models.</p>
+            </div>
+            <button class="action-btn">Read →</button>
+        </div>
+        <div class="list-bar" onclick="alert('Loading Article 2...')">
+            <div>
+                <h3 class="text-2xl font-black uppercase">2. Cellular Organelles</h3>
+                <p class="font-bold text-slate-500 text-sm mt-1">Nucleus, Ribosomes, and the Endomembrane System.</p>
+            </div>
+            <button class="action-btn">Read →</button>
+        </div>
+        <div class="list-bar" onclick="alert('Loading Article 3...')">
+            <div>
+                <h3 class="text-2xl font-black uppercase">3. Cell Transport</h3>
+                <p class="font-bold text-slate-500 text-sm mt-1">Active vs Passive: Osmosis, diffusion, and ATP pumps.</p>
+            </div>
+            <button class="action-btn">Read →</button>
+        </div>
+
+        <div class="section-header">
+            <h2 class="text-4xl font-black uppercase italic">🎥 Video Lectures</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="grid-card">
+                <div class="text-4xl mb-2">▶️</div>
+                <h3 class="font-black uppercase text-md text-slate-800">Tour of the Cell</h3>
+                <p class="font-bold text-slate-500 text-[10px] mt-1 uppercase tracking-widest">12 Min</p>
+            </div>
+            <div class="grid-card">
+                <div class="text-4xl mb-2">▶️</div>
+                <h3 class="font-black uppercase text-md text-slate-800">Membrane Structure</h3>
+                <p class="font-bold text-slate-500 text-[10px] mt-1 uppercase tracking-widest">15 Min</p>
+            </div>
+            <div class="grid-card">
+                <div class="text-4xl mb-2">▶️</div>
+                <h3 class="font-black uppercase text-md text-slate-800">Osmosis & Tonicity</h3>
+                <p class="font-bold text-slate-500 text-[10px] mt-1 uppercase tracking-widest">18 Min</p>
+            </div>
+            <div class="grid-card">
+                <div class="text-4xl mb-2">▶️</div>
+                <h3 class="font-black uppercase text-md text-slate-800">Active Transport</h3>
+                <p class="font-bold text-slate-500 text-[10px] mt-1 uppercase tracking-widest">10 Min</p>
+            </div>
+            <div class="grid-card">
+                <div class="text-4xl mb-2">▶️</div>
+                <h3 class="font-black uppercase text-md text-slate-800">Endosymbiosis</h3>
+                <p class="font-bold text-slate-500 text-[10px] mt-1 uppercase tracking-widest">8 Min</p>
+            </div>
+            <div class="grid-card">
+                <div class="text-4xl mb-2">▶️</div>
+                <h3 class="font-black uppercase text-md text-slate-800">Cell Signaling</h3>
+                <p class="font-bold text-slate-500 text-[10px] mt-1 uppercase tracking-widest">20 Min</p>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2 class="text-4xl font-black uppercase italic">✍️ Practice Quizzes</h2>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-4">
+            <div class="grid-card border-purple-500 border-4">
+                <h3 class="font-black uppercase text-sm text-slate-800">Quiz 1</h3>
+                <p class="font-bold text-[#AB273C] text-[10px] mt-1 uppercase tracking-widest">Organelles</p>
+            </div>
+            <div class="grid-card border-purple-500 border-4">
+                <h3 class="font-black uppercase text-sm text-slate-800">Quiz 2</h3>
+                <p class="font-bold text-[#AB273C] text-[10px] mt-1 uppercase tracking-widest">Membranes</p>
+            </div>
+            <div class="grid-card border-purple-500 border-4">
+                <h3 class="font-black uppercase text-sm text-slate-800">Quiz 3</h3>
+                <p class="font-bold text-[#AB273C] text-[10px] mt-1 uppercase tracking-widest">Transport</p>
+            </div>
+            <div class="grid-card border-purple-500 border-4">
+                <h3 class="font-black uppercase text-sm text-slate-800">Quiz 4</h3>
+                <p class="font-bold text-[#AB273C] text-[10px] mt-1 uppercase tracking-widest">Signaling</p>
+            </div>
+            <div class="grid-card border-purple-500 border-4">
+                <h3 class="font-black uppercase text-sm text-slate-800">Quiz 5</h3>
+                <p class="font-bold text-[#AB273C] text-[10px] mt-1 uppercase tracking-widest">Vocab Match</p>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2 class="text-4xl font-black uppercase italic">🏁 Final Tests</h2>
+        </div>
+        
+        <div class="test-card">
+            <div>
+                <span class="bg-[#AB273C] text-white px-2 py-1 rounded text-[10px] font-black tracking-widest uppercase mb-2 inline-block">Save Progress Enabled</span>
+                <h3 class="font-black uppercase text-3xl text-slate-900">Unit 1: Multiple Choice</h3>
+                <p class="font-bold text-slate-700 mt-2">50 Questions • Comprehensive Exam</p>
+            </div>
+            <button class="bg-[#AB273C] text-white px-8 py-4 rounded-full font-black uppercase text-sm border-4 border-charcoal hover:scale-105 transition shadow-[4px_4px_0px_var(--charcoal)]">Start Exam</button>
+        </div>
+
+        <div class="test-card bg-white">
+            <div>
+                <span class="bg-purple-500 text-white px-2 py-1 rounded text-[10px] font-black tracking-widest uppercase mb-2 inline-block">AI Graded</span>
+                <h3 class="font-black uppercase text-3xl text-slate-900">Unit 1: Written (FRQ)</h3>
+                <p class="font-bold text-slate-500 mt-2">Free Response • Extra Practice</p>
+            </div>
+            <button class="bg-charcoal text-white px-8 py-4 rounded-full font-black uppercase text-sm border-4 border-charcoal hover:scale-105 transition shadow-[4px_4px_0px_var(--purple)]">Start Writing</button>
+        </div>
+
+    </div>
+
+    <script src="gloobie.js"></script>
+</body>
+</html>
