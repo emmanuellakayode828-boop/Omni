@@ -268,16 +268,17 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
-        // AUTHENTICATION LOGIC
+// AUTHENTICATION LOGIC
         onAuthStateChanged(auth, (user) => {
             const signUpBtn = document.querySelector('.btn-main');
             if (user) {
                 if(signUpBtn) signUpBtn.innerText = "DASHBOARD";
             } else {
                 if(signUpBtn) signUpBtn.innerText = "SIGN UP";
-            
-       // GLOOBIE AI LOGIC
-      document.getElementById("auth-action-btn").addEventListener("click", async () => {
+            }
+        }); // <-- THIS WAS THE MISSING PIECE KILLING YOUR BUTTONS
+
+        document.getElementById("auth-action-btn").addEventListener("click", async () => {
             const n = document.getElementById("auth-name").value;
             const e = document.getElementById("auth-email").value;
             const p = document.getElementById("auth-password").value;
@@ -357,7 +358,7 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
                     chatDisplay.innerHTML += `<p class="text-[#0ea5e9]">Gloobie: "${aiResponse}"</p>`;
                     chatDisplay.scrollTop = chatDisplay.scrollHeight;
 
-              } catch (err) {
+                } catch (err) {
                     loadingMsg.innerText = "Gloobie: 'My global connection is lagging.'";
                     console.error(err);
                 }
