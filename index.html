@@ -275,55 +275,8 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
                 if(signUpBtn) signUpBtn.innerText = "DASHBOARD";
             } else {
                 if(signUpBtn) signUpBtn.innerText = "SIGN UP";
-            }
-        });
-
-        document.getElementById("auth-action-btn").addEventListener("click", async () => {
-            const n = document.getElementById("auth-name").value;
-            const e = document.getElementById("auth-email").value;
-            const p = document.getElementById("auth-password").value;
             
-            if(!e || !p) return alert("Email and Password required!");
-
-            try {
-                if (window.isLoginMode) {
-                    await signInWithEmailAndPassword(auth, e, p);
-                    alert("Welcome back!");
-                } else {
-                    if(!n) return alert("Name is required!");
-                    const userCred = await createUserWithEmailAndPassword(auth, e, p);
-                    await setDoc(doc(db, "users", userCred.user.uid), { 
-                        fullName: n, 
-                        email: e, 
-                        date: new Date() 
-                    });
-                    alert("Account Created!");
-                }
-                document.getElementById('signup-overlay').classList.add('hidden');
-            } catch(err) { 
-                alert("Auth Error: " + err.message); 
-            }
-        });
-
-        const googleBtn = document.getElementById("google-auth-btn");
-        if(googleBtn) {
-            googleBtn.addEventListener("click", async () => {
-                try {
-                    const result = await signInWithPopup(auth, provider);
-                    await setDoc(doc(db, "users", result.user.uid), { 
-                        fullName: result.user.displayName, 
-                        email: result.user.email, 
-                        date: new Date() 
-                    }, { merge: true });
-                    alert("Signed in with Google!");
-                    document.getElementById('signup-overlay').classList.add('hidden');
-                } catch (err) {
-                    alert("Google Error: " + err.message);
-                }
-            });
-        }
-
-        // GLOOBIE AI LOGIC
+       // GLOOBIE AI LOGIC
         const chatBtn = document.getElementById("send-to-gloobie");
         const chatInput = document.getElementById("gloobie-input");
         const chatDisplay = document.getElementById("chat-display");
@@ -342,14 +295,14 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
                 loadingMsg.innerText = "Gloobie is judging your question...";
                 chatDisplay.appendChild(loadingMsg);
 
-              try {
-        const response = await fetch('/.netlify/functions/gloobie', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                message: `You are Gloobie, an AI for OMNI. You are blunt, helpful, and very sarcastic. Keep it short. User: ${userMsg}`
-            })
-        });;
+                try {
+                    const response = await fetch('/.netlify/functions/gloobie', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            message: `You are Gloobie, an AI for OMNI. You are blunt, helpful, and very sarcastic. Keep it short. User: ${userMsg}`
+                        })
+                    });
 
                     const data = await response.json();
                     const aiResponse = data.candidates[0].content.parts[0].text;
@@ -360,20 +313,8 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
 
                 } catch (err) {
                     loadingMsg.innerText = "Gloobie: 'My global connection is lagging. Check your config file!'";
+                    console.error("Gloobie Error Details:", err);
                 }
             });
         }
     </script>
-
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('Offline Mode Active!', reg))
-                    .catch(err => console.log('Offline Mode Failed', err));
-            });
-        }
-    </script>
-
-</body>
-</html>
