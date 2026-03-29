@@ -187,13 +187,22 @@
     </div>
 
     <div id="gloobie-helper" class="fixed bottom-8 right-8 z-[5000] cursor-pointer">
-        <div id="gloobie-window" class="absolute bottom-24 right-0 bg-white border-4 border-slate-800 p-4 rounded-[30px] w-80 shadow-[10px_10px_0px_#1e293b] opacity-0 translate-y-4">
-            <div id="chat-display" class="h-48 overflow-y-auto mb-4 p-2 text-[10px] font-bold text-slate-600 space-y-2 uppercase border-b-2 border-slate-100">
+        <div id="gloobie-window" class="absolute bottom-24 right-0 bg-white border-4 border-slate-800 p-4 rounded-[30px] w-80 shadow-[10px_10px_0px_#1e293b] opacity-0 translate-y-4 transition-all duration-300">
+            <div class="flex justify-between items-center mb-2 pb-2 border-b-2 border-slate-100">
+                <span class="font-black text-[10px] uppercase text-slate-400">Gloobie OS</span>
+                <div class="flex gap-3">
+                    <button id="clear-chat-btn" class="text-[10px] font-black text-[#AB273C] hover:scale-110 transition">CLEAR</button>
+                    <button id="expand-chat-btn" class="text-[10px] font-black text-slate-400 hover:scale-110 transition">EXPAND</button>
+                </div>
+            </div>
+            
+            <div id="chat-display" class="h-48 overflow-y-auto mb-4 p-2 text-[11px] font-bold text-slate-600 space-y-3">
                 <p class="text-[#0ea5e9]">Gloobie: "Finally. Ask me something. I'm bored."</p>
             </div>
+            
             <div class="flex gap-2">
                 <input type="text" id="gloobie-input" placeholder="Type here..." class="flex-grow border-2 border-slate-800 rounded-full px-4 py-2 text-[10px] font-bold outline-none">
-                <button id="send-to-gloobie" class="bg-[#0ea5e9] text-white px-4 py-2 rounded-full font-black text-[10px] border-2 border-slate-800 shadow-[3px_3px_0px_#1e293b]">SEND</button>
+                <button id="send-to-gloobie" class="bg-[#0ea5e9] text-white px-4 py-2 rounded-full font-black text-[10px] border-2 border-slate-800 shadow-[3px_3px_0px_#1e293b] hover:translate-y-1 hover:shadow-none transition-all">SEND</button>
             </div>
         </div>
 
@@ -362,6 +371,50 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
                     loadingMsg.innerText = "Gloobie: 'My global connection is lagging.'";
                     console.error(err);
                 }
+            });
+        }
+        // GLOOBIE UI CONTROLS (Expand & Clear)
+        const expandBtn = document.getElementById("expand-chat-btn");
+        const clearBtn = document.getElementById("clear-chat-btn");
+        const gloobieWindow = document.getElementById("gloobie-window");
+
+        if (expandBtn) {
+            expandBtn.addEventListener("click", () => {
+                // Toggles between normal width (w-80) and wide mode (w-[500px])
+                gloobieWindow.classList.toggle("w-80");
+                gloobieWindow.classList.toggle("w-[500px]");
+                // Change button text
+                if (gloobieWindow.classList.contains("w-[500px]")) {
+                    expandBtn.innerText = "SHRINK";
+                } else {
+                    expandBtn.innerText = "EXPAND";
+                }
+            });
+        }
+
+       // GLOOBIE UI CONTROLS (Expand & Clear)
+        const expandBtn = document.getElementById("expand-chat-btn");
+        const clearBtn = document.getElementById("clear-chat-btn");
+        const gloobieWindow = document.getElementById("gloobie-window");
+
+        if (expandBtn) {
+            expandBtn.addEventListener("click", () => {
+                // Toggles between normal width (w-80) and wide mode (w-[500px])
+                gloobieWindow.classList.toggle("w-80");
+                gloobieWindow.classList.toggle("w-[500px]");
+                // Change button text
+                if (gloobieWindow.classList.contains("w-[500px]")) {
+                    expandBtn.innerText = "SHRINK";
+                } else {
+                    expandBtn.innerText = "EXPAND";
+                }
+            });
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener("click", () => {
+                // Wipes the chat and puts the default message back
+                chatDisplay.innerHTML = `<p class="text-[#0ea5e9]">Gloobie: "Memory wiped. Who are you again?"</p>`;
             });
         }
     </script>
