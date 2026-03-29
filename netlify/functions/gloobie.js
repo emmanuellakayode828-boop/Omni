@@ -1,6 +1,6 @@
 exports.handler = async (event) => {
   // This automatically finds the variable you ALREADY made in Netlify
-  const API_KEY = process.env.VITE_GLOOBIE_KEY; 
+  const API_KEY = process.env.vite_GLOOBIE_key; 
   const { message } = JSON.parse(event.body);
 
   try {
