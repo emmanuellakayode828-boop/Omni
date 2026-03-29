@@ -342,21 +342,14 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
                 loadingMsg.innerText = "Gloobie is judging your question...";
                 chatDisplay.appendChild(loadingMsg);
 
-                try {
-               const response = await fetch('/.netlify/functions/gloobie', {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ message: prompt }) // If your chat text variable isn't named 'prompt', change this word to match it
-});
-  method: "POST",
-  body: JSON.stringify({ message: prompt }) // 'prompt' is the user's chat message
-});
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            contents: [{ parts: [{ text: `You are Gloobie, an AI for OMNI. You are blunt, helpful, and very sarcastic. Keep it short. User: ${userMsg}` }] }]
-                        })
-                    });
+              try {
+        const response = await fetch('/.netlify/functions/gloobie', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                message: `You are Gloobie, an AI for OMNI. You are blunt, helpful, and very sarcastic. Keep it short. User: ${userMsg}`
+            })
+        });;
 
                     const data = await response.json();
                     const aiResponse = data.candidates[0].content.parts[0].text;
