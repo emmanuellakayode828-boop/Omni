@@ -343,8 +343,11 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
                 chatDisplay.appendChild(loadingMsg);
 
                 try {
-                // Instead of calling Google, we call our own secure bridge
-const response = await fetch('/.netlify/functions/gloobie', {
+               const response = await fetch('/.netlify/functions/gloobie', {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ message: prompt }) // If your chat text variable isn't named 'prompt', change this word to match it
+});
   method: "POST",
   body: JSON.stringify({ message: prompt }) // 'prompt' is the user's chat message
 });
