@@ -373,25 +373,6 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
                 }
             });
         }
-        // GLOOBIE UI CONTROLS (Expand & Clear)
-        const expandBtn = document.getElementById("expand-chat-btn");
-        const clearBtn = document.getElementById("clear-chat-btn");
-        const gloobieWindow = document.getElementById("gloobie-window");
-
-        if (expandBtn) {
-            expandBtn.addEventListener("click", () => {
-                // Toggles between normal width (w-80) and wide mode (w-[500px])
-                gloobieWindow.classList.toggle("w-80");
-                gloobieWindow.classList.toggle("w-[500px]");
-                // Change button text
-                if (gloobieWindow.classList.contains("w-[500px]")) {
-                    expandBtn.innerText = "SHRINK";
-                } else {
-                    expandBtn.innerText = "EXPAND";
-                }
-            });
-        }
-
        // GLOOBIE UI CONTROLS (Expand & Clear)
         const expandBtn = document.getElementById("expand-chat-btn");
         const clearBtn = document.getElementById("clear-chat-btn");
@@ -399,10 +380,8 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
 
         if (expandBtn) {
             expandBtn.addEventListener("click", () => {
-                // Toggles between normal width (w-80) and wide mode (w-[500px])
                 gloobieWindow.classList.toggle("w-80");
                 gloobieWindow.classList.toggle("w-[500px]");
-                // Change button text
                 if (gloobieWindow.classList.contains("w-[500px]")) {
                     expandBtn.innerText = "SHRINK";
                 } else {
@@ -413,8 +392,8 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
 
         if (clearBtn) {
             clearBtn.addEventListener("click", () => {
-                // Wipes the chat and puts the default message back
-                chatDisplay.innerHTML = `<p class="text-[#0ea5e9]">Gloobie: "Memory wiped. Who are you again?"</p>`;
+                const display = document.getElementById("chat-display");
+                display.innerHTML = `<p class="text-[#0ea5e9]">Gloobie: "Memory wiped. Who are you again?"</p>`;
             });
         }
     </script>
