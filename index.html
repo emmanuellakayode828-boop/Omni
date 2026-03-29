@@ -357,20 +357,10 @@ const GLOOBIE_KEY = window.GLOOBIE_KEY || "AI_KEY_PENDING";
                     chatDisplay.innerHTML += `<p class="text-[#0ea5e9]">Gloobie: "${aiResponse}"</p>`;
                     chatDisplay.scrollTop = chatDisplay.scrollHeight;
 
-                } catch (err) {
+              } catch (err) {
                     loadingMsg.innerText = "Gloobie: 'My global connection is lagging.'";
                     console.error(err);
                 }
-            });
-        }
-    </script>
-
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('Offline Mode Active!', reg))
-                    .catch(err => console.log('Offline Mode Failed', err));
             });
         }
     </script>
